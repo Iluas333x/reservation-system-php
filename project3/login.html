@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+
+    <style>
+        /* =========================
+           GLOBAL BACKGROUND ILLUSTRATION
+        ========================== */
+        body {
+            font-family: 'Georgia', serif;
+            height: 100vh;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background:
+                radial-gradient(circle at 20% 20%, rgba(255,200,150,0.12), transparent 40%),
+                radial-gradient(circle at 80% 30%, rgba(255,180,120,0.1), transparent 45%),
+                radial-gradient(circle at 50% 80%, rgba(120,60,20,0.35), transparent 60%),
+                linear-gradient(180deg, #2a1608, #4b2a15, #2a1608);
+            overflow: hidden;
+        }
+
+        /* STEAM ILLUSTRATION */
+        body::before,
+        body::after {
+            content: "";
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(255,255,255,0.08), transparent 70%);
+            animation: float 12s infinite ease-in-out;
+        }
+
+        body::before {
+            top: 10%;
+            left: 15%;
+        }
+
+        body::after {
+            bottom: 15%;
+            right: 20%;
+            animation-delay: 4s;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-40px); }
+        }
+
+        /* =========================
+           CONTAINER
+        ========================== */
+        .container {
+            background: linear-gradient(145deg, rgba(122,82,56,0.95), rgba(80,50,30,0.95));
+            backdrop-filter: blur(10px);
+            padding: 45px 35px;
+            border-radius: 20px;
+            width: 360px;
+            color: #fff;
+            box-shadow:
+                0 30px 60px rgba(0,0,0,0.7),
+                inset 0 1px 1px rgba(255,255,255,0.15);
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+            z-index: 2;
+        }
+
+        .container:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 40px 80px rgba(0,0,0,0.85);
+        }
+
+        /* =========================
+           HEADING
+        ========================== */
+        h2 {
+            text-align: center;
+            margin-bottom: 35px;
+            font-size: 32px;
+            color: #ffebcd;
+            letter-spacing: 1.5px;
+            text-shadow: 0 3px 8px rgba(0,0,0,0.5);
+        }
+
+        label {
+            font-size: 14px;
+            color: #ffe4c4;
+            letter-spacing: 0.5px;
+        }
+
+        /* =========================
+           INPUTS
+        ========================== */
+        input[type="email"],
+        input[type="password"] {
+            width: 100%;
+            padding: 15px;
+            margin: 10px 0 22px;
+            border-radius: 12px;
+            border: none;
+            background: linear-gradient(#fff7ee, #f0dfcd);
+            font-weight: bold;
+            color: #4b2e2e;
+            box-shadow:
+                inset 0 3px 6px rgba(0,0,0,0.2),
+                0 2px 4px rgba(255,255,255,0.3);
+            transition: all 0.3s ease;
+        }
+
+        input:focus {
+            outline: none;
+            box-shadow:
+                inset 0 4px 8px rgba(0,0,0,0.25),
+                0 0 0 3px rgba(255,228,196,0.45);
+        }
+
+        input::placeholder {
+            color: #a67c52;
+            font-style: italic;
+        }
+
+        /* =========================
+           BUTTON
+        ========================== */
+        button {
+            width: 100%;
+            padding: 16px;
+            border-radius: 12px;
+            border: none;
+            cursor: pointer;
+            background: linear-gradient(145deg, #b05a24, #7a3b12);
+            color: #fff5e6;
+            font-size: 18px;
+            font-weight: bold;
+            letter-spacing: 1.2px;
+            box-shadow:
+                0 10px 25px rgba(0,0,0,0.45),
+                inset 0 1px 1px rgba(255,255,255,0.3);
+            transition: all 0.3s ease;
+        }
+
+        button:hover {
+            transform: translateY(-3px);
+            background: linear-gradient(145deg, #c96a2c, #8b4513);
+            box-shadow: 0 14px 35px rgba(0,0,0,0.6);
+        }
+
+        /* =========================
+           FOOTER
+        ========================== */
+        .footer {
+            margin-top: 22px;
+            text-align: center;
+            color: #ffe4c4;
+            font-size: 14px;
+        }
+
+        .footer a {
+            color: #fff5e6;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* =========================
+           SUCCESS / ERROR
+        ========================== */
+        .success {
+            color: #d4edda;
+            text-align: center;
+            margin-bottom: 15px;
+        }
+
+        .error {
+            color: #f8d7da;
+            text-align: center;
+            margin-bottom: 15px;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+    <h2>Login</h2>
+    <form action="log.php" method="post">
+        <label>Email</label>
+        <input type="email" name="email" placeholder="Enter your email" required>
+
+        <label>Password</label>
+        <input type="password" name="password" placeholder="Enter your password" required>
+
+        <button type="submit" name="log">Login</button>
+    </form>
+
+    <div class="footer">
+        Don't have an account? <a href="registration_page.php">Register</a>
+    </div>
+</div>
+
+</body>
+</html>
